@@ -39,6 +39,7 @@ const body = document.querySelector('body');
 const display = document.querySelector('[data-display]');
 const cityName = document.querySelector('[data-name]');
 const weatherCond = document.querySelector('[data-weather]');
+const widget = document.querySelector('[data-widget]');
 // function 
 
 function drawName(name){

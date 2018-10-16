@@ -4,7 +4,7 @@ body, html{
 }
 
 .weatherWidget{
-    width: 80%;
+    width: 99%;
     height: 50%;
     outline: 1px solid black;
     display: flex;
@@ -12,6 +12,8 @@ body, html{
     justify-content: flex-start;
     flex-wrap: wrap;
     align-items: center;
+    color: black;
+    background-color: aliceblue;
 }
 
 .condition{
