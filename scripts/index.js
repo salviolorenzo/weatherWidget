@@ -1,5 +1,5 @@
 // get temperature, pressure, humidity,
-const userCity = `Los Angeles`;
+const userCity = prompt(`Enter City Name`);
 let url = `http://api.openweathermap.org/data/2.5/weather?q=${userCity}&APPID=88b430eb57686cffb62a9a7565a182f5`;
 
 // get and display temperature
@@ -28,7 +28,7 @@ fetch(url)
 
 fetch(url)
 .then(r => r.json())
-.then(j => j.weather[0].main)
+.then(j => j.weather[0])
 .then(weather);
 
 
@@ -48,7 +48,7 @@ function drawName(name){
 function drawTemp(temp){
     let temperature = document.createElement('li');
     temp = ((temp - 273.15) * 9/5 + 32).toFixed(1);
-    temperature.textContent = `Temperature: ${temp}.`;
+    temperature.textContent = `Temperature: ${temp} °F`;
     display.appendChild(temperature);
 }
 
@@ -64,16 +64,12 @@ function drawHum(hum){
     display.appendChild(humidity);
 }
 
-function weather(condition){
-    let icon = document.createElement('i');
-    if(condition === 'Clear'){
-        icon.classList.add(`fa`, `fa-sun`);
-    }
-    else if(condition === 'Clouds'){
-        icon.classList.add(`fas`, `fa-cloud`);
-    }
+function weather(weatherObj){
+    let img = document.createElement('img');
+    let iconID = weatherObj.icon;
+    img.setAttribute('src', `http://openweathermap.org/img/w/${iconID}.png`)
     let weatherHeader = document.createElement('h5');
-    weatherHeader.textContent = `Weather: ${condition}`;
-    weatherCond.appendChild(icon);
+    weatherHeader.textContent = `Weather: ${weatherObj.description}`;
+    weatherCond.appendChild(img);
     weatherCond.appendChild(weatherHeader);
 }

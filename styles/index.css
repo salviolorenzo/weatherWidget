@@ -22,8 +22,13 @@ body, html{
     font-size: 24px;
 }
 
-.condition i{
-    font-size: 32px;
+.condition img{
+    width: 100px;
+    height: 100px;
+}
+
+.condition h5{
+    margin: 0;
 }
 
 .weatherDisplay{
