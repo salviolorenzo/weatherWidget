@@ -1,0 +1,41 @@
+body, html{
+    width: 100%;
+    height: 100%;
+}
+
+.weatherWidget{
+    width: 80%;
+    height: 50%;
+    outline: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.condition{
+    height: 40%;
+    display: inherit;
+    flex-direction: column;
+    align-items: center;
+    font-size: 24px;
+}
+
+.condition i{
+    font-size: 32px;
+}
+
+.weatherDisplay{
+    list-style-type: none;
+    width: 100%;
+    padding: 0;
+    display: inherit;
+    flex-wrap: inherit;
+    justify-content: space-evenly;
+}
+
+.weatherDisplay li{
+    /* min-width: 50%; */
+    text-align: center;
+}
