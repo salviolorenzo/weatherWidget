@@ -1,4 +1,3 @@
-
 // const userCity= 'Atlanta';
 let foreCastUrl = `http://api.openweathermap.org/data/2.5/forecast?q=${userCity}&APPID=88b430eb57686cffb62a9a7565a182f5`;
 
@@ -7,7 +6,7 @@ for (let i=0; i<5; i++){
     fetch(foreCastUrl)
     .then(r => r.json())
     .then(j => j.list[i])
-    .then(drawBox);
+    .then(drawBox)
 }
 
 let today = new Date();
