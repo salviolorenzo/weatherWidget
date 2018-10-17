@@ -1,36 +1,37 @@
 // get temperature, pressure, humidity,
-const userCity = prompt(`Enter City Name`);
-// const userCity= 'Atlanta';
+// const userCity = prompt(`Enter City Name`);
+const userCity= 'London';
 let url = `http://api.openweathermap.org/data/2.5/weather?q=${userCity}&APPID=88b430eb57686cffb62a9a7565a182f5`;
 
 // get and display temperature
 fetch(url)
 .then(r => r.json())
-.then(j => j.main.temp)
-.then(drawTemp);
+.then(drawName)
+.then(drawTemp)
+.then(drawPress)
+.then(drawHum)
+.then(weather);
 
 // city name
-fetch(url)
-.then(r => r.json())
-.then(j => j.name)
-.then(drawName);
+// fetch(url)
+// .then(r => r.json())
+// .then(j => j.name)
 
 // pressure
-fetch(url)
-.then(r => r.json())
-.then(j => j.main.pressure)
-.then(drawPress);
+// fetch(url)
+// .then(r => r.json())
+// .then(j => j.main.pressure)
+// .then(drawPress);
 
 // humidity
-fetch(url)
-.then(r => r.json())
-.then(j => j.main.humidity)
-.then(drawHum);
+// fetch(url)
+// .then(r => r.json())
+// .then(j => j.main.humidity)
 
-fetch(url)
-.then(r => r.json())
-.then(j => j.weather[0])
-.then(weather);
+
+// fetch(url)
+// .then(r => r.json())
+// .then(j => j.weather[0])
 
 
 // Convert temperature to F (temp − 273.15) × 9/5 + 32 = °F
@@ -43,30 +44,36 @@ const weatherCond = document.querySelector('[data-weather]');
 const widget = document.querySelector('[data-widget]');
 // function 
 
-function drawName(name){
-    cityName.textContent = name; 
+function drawName(obj){
+    cityName.textContent = obj.name; 
+    return obj;
 }
 
-function drawTemp(temp){
+function drawTemp(obj){
     let temperature = document.createElement('li');
+    let temp = obj.main.temp;
     temp = ((temp - 273.15) * 9/5 + 32).toFixed(1);
     temperature.textContent = `Temperature: ${temp} °F`;
     display.appendChild(temperature);
+    return obj;
 }
 
-function drawPress(press){
+function drawPress(obj){
     let pressure  = document.createElement('li');
-    pressure.textContent = `Pressure: ${press} hPa.`;
+    pressure.textContent = `Pressure: ${obj.main.pressure} hPa.`;
     display.appendChild(pressure);
+    return obj;
 }
 
-function drawHum(hum){
+function drawHum(obj){
     let humidity  = document.createElement('li');
-    humidity.textContent = `Humidity: ${hum}%`;
+    humidity.textContent = `Humidity: ${obj.main.humidity}%`;
     display.appendChild(humidity);
+    return obj;
 }
 
-function weather(weatherObj){
+function weather(obj){
+    let weatherObj = obj.weather[0];
     let img = document.createElement('img');
     let iconID = weatherObj.icon;
     img.setAttribute('src', `http://openweathermap.org/img/w/${iconID}.png`)
