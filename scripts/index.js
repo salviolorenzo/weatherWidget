@@ -1,6 +1,6 @@
 // get temperature, pressure, humidity,
 // const userCity = prompt(`Enter City Name`);
-const userCity= 'London';
+const userCity= 'denver';
 let url = `http://api.openweathermap.org/data/2.5/weather?q=${userCity}&APPID=88b430eb57686cffb62a9a7565a182f5`;
 
 // get and display temperature
@@ -8,34 +8,9 @@ fetch(url)
 .then(r => r.json())
 .then(drawName)
 .then(drawTemp)
-.then(drawPress)
 .then(drawHum)
+.then(drawPress)
 .then(weather);
-
-// city name
-// fetch(url)
-// .then(r => r.json())
-// .then(j => j.name)
-
-// pressure
-// fetch(url)
-// .then(r => r.json())
-// .then(j => j.main.pressure)
-// .then(drawPress);
-
-// humidity
-// fetch(url)
-// .then(r => r.json())
-// .then(j => j.main.humidity)
-
-
-// fetch(url)
-// .then(r => r.json())
-// .then(j => j.weather[0])
-
-
-// Convert temperature to F (temp − 273.15) × 9/5 + 32 = °F
-// Draw to div
 
 const body = document.querySelector('body');
 const display = document.querySelector('[data-display]');
@@ -78,7 +53,7 @@ function weather(obj){
     let iconID = weatherObj.icon;
     img.setAttribute('src', `http://openweathermap.org/img/w/${iconID}.png`)
     let weatherHeader = document.createElement('h5');
-    weatherHeader.textContent = `Weather: ${weatherObj.description}`;
+    weatherHeader.textContent = `${weatherObj.description}`;
     weatherCond.appendChild(img);
     weatherCond.appendChild(weatherHeader);
 }
