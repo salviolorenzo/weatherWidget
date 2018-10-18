@@ -1,7 +1,7 @@
 // get temperature, pressure, humidity,
 // const userCity = prompt(`Enter City Name`);
 const userCity= 'atlanta';
-let url = `http://api.openweathermap.org/data/2.5/weather?q=${userCity}&APPID=88b430eb57686cffb62a9a7565a182f5`;
+let url = `http://api.openweathermap.org/data/2.5/weather?q=${userCity}&APPID=${OWkey}`;
 
 // get and display temperature
 function getWeather(){
