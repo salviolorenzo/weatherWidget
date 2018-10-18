@@ -1,5 +1,5 @@
 // const userCity= 'Atlanta';
-let foreCastUrl = `http://api.openweathermap.org/data/2.5/forecast?q=${userCity}&APPID=${OWkey}`;
+let foreCastUrl = `http://api.openweathermap.org/data/2.5/forecast?q=${userCity}&APPID=${OWKey}`;
 
 //tomorrow
 for (let i=0; i<5; i++){

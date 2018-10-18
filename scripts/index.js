@@ -1,7 +1,7 @@
 // get temperature, pressure, humidity,
 // const userCity = prompt(`Enter City Name`);
 const userCity= 'atlanta';
-let url = `http://api.openweathermap.org/data/2.5/weather?q=${userCity}&APPID=${OWkey}`;
+let url = `http://api.openweathermap.org/data/2.5/weather?q=${userCity}&APPID=${OWKey}`;
 
 // get and display temperature
 function getWeather(){
@@ -86,7 +86,7 @@ function loadCache(){
 
 function showMap(){
     const map = document.querySelector('[data-map]');
-    map.setAttribute('src', `https://www.google.com/maps/embed/v1/place?key=${key}=${userCity}`);
+    map.setAttribute('src', `https://www.google.com/maps/embed/v1/place?key=${GoKey}=${userCity}`);
 }
 
 
